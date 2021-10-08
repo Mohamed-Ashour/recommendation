@@ -1,0 +1,13 @@
+version: '3'
+
+services:
+  api:
+    tty: true
+    stdin_open: true
+    container_name: recommendation
+    build: .
+    ports:
+      - '3000:3000'
+    volumes:
+      - '.:/code'
+      - '/code/node_modules'
