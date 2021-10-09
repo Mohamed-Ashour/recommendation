@@ -1,9 +1,7 @@
-import { Transform } from 'class-transformer';
-
 export class RecommendationsDto {
-  readonly privateLiability: number;
+  privateLiability: number;
 
-  readonly homeContent: number;
+  homeContent: number;
 
-  readonly healthInsurance: number;
+  healthInsurance: number;
 }

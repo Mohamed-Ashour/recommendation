@@ -1,10 +1,8 @@
 import { Transform } from 'class-transformer';
 import {
   IsBoolean,
-  IsBooleanString,
   IsEmail,
   IsEnum,
-  IsIn,
   IsInt,
   IsString,
   Max,
@@ -19,26 +17,26 @@ export class GetRecommendationsDto {
   @IsString()
   @MinLength(1)
   @MaxLength(100)
-  readonly firstName: string;
+  firstName: string;
 
   @IsString()
   @MinLength(1)
-  readonly address: string;
+  address: string;
 
   @Transform(({ value }) => value === 'true')
   @IsBoolean()
-  readonly hasChildren: boolean;
+  hasChildren: boolean;
 
-  @Transform(({ value }) => Number(value))
   @IsInt()
   @Min(1)
   @Max(100)
   @ValidateIf((obj) => obj.hasChildren)
-  readonly childrenNumber: number;
+  @Transform(({ value }) => Number(value))
+  childrenNumber?: number;
 
   @IsEnum(Occupation)
-  readonly occupation: string;
+  occupation: Occupation;
 
   @IsEmail()
-  readonly email: string;
+  email: string;
 }

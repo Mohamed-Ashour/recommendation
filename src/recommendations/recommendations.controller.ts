@@ -1,5 +1,5 @@
 import { Controller, Get, Query } from '@nestjs/common';
-import { GetRecommendationsDto } from 'src/recommendations/dto/GetRecommendations.dto';
+import { GetRecommendationsDto } from '../recommendations/dto/GetRecommendations.dto';
 import { RecommendationsDto } from './dto/Recommendations.dto';
 import { RecommendationsService } from './recommendations.service';
 
@@ -11,8 +11,6 @@ export class RecommendationsController {
 
   @Get('/')
   getRecommendations(@Query() getRecommendationsDto: GetRecommendationsDto): RecommendationsDto {
-      console.log(getRecommendationsDto);
-      
      return this.recommendationsService.getRecommendations(getRecommendationsDto)
   }
 }
