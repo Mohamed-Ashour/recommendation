@@ -13,6 +13,10 @@ $ docker-compose up -d
 ```
 
 ## Running test cases
+#### install dependencies
+```bash
+$ npm install
+```
 #### unit tests
 ```bash
 $ npm run test
